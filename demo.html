@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Студенческий профиль</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --accent: #4361ee;
+      --light-gray: #f5f7fa;
+      --gray: #6c757d;
+      --border: #e0e0e0;
+    }
+    .dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --light-gray: #1e1e1e;
+      --border: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+    .theme-toggle::after {
+      content: '☀️';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      transition: transform 0.3s;
+    }
+    .dark .theme-toggle::after {
+      content: '🌙';
+      transform: translateX(16px);
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .mobile-nav a.back-link {
+      display: block;
+      padding: 12px 0;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav .theme-toggle {
+      margin-top: 16px;
+      margin-left: 0;
+    }
+
+    .profile-card {
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 16px 0;
+      border-left: 4px solid var(--accent);
+    }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin: 0 auto 16px;
+    }
+    .profile-info {
+      text-align: center;
+    }
+    .profile-info h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .profile-info p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    #qrcode {
+      width: 160px;
+      height: 160px;
+      background: white;
+      padding: 8px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin: 24px 0 16px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .schedule-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-item:last-child {
+      border: none;
+    }
+    .schedule-time {
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .schedule-subject {
+      margin-top: 4px;
+      font-size: 1rem;
+    }
+    .schedule-location {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 16px 0;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer {
+      background: var(--light-gray);
+      padding: 30px 0 20px;
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* === Mobile styles === */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .desktop-nav,
+      .back-link,
+      .theme-toggle:not(.mobile) {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .mobile-nav.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">UniveriD</a>
+        <div class="header-right">
+          <a href="index.html" class="back-link">Выход</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html" class="back-link">Выход</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <div class="profile-card">
+      <div class="avatar">СС</div>
+      <div class="profile-info">
+        <h2>Сергей Сергеевич</h2>
+        <p>СПбПУ (Политех)</p>
+        <p>Группа: ИУ8-11Б</p>
+        <p>Факультет: Информационные технологии и управления</p>
+        <p>Специальность: Прикладная математика и информатика</p>
+      </div>
+    </div>
+
+    <div class="qr-container">
+      <img src="data:image/png;base64,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">
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="today">Сегодня</button>
+      <button class="tab-btn" data-tab="tomorrow">Завтра</button>
+      <button class="tab-btn" data-tab="week">Неделя</button>
+    </div>
+
+    <div id="schedule-content"></div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const body = document.body;
+    const isDark = localStorage.getItem('univerid-theme') === 'dark';
+    if (isDark) body.classList.add('dark');
+
+    function syncTheme() {
+      const isNowDark = body.classList.contains('dark');
+      if (mobileThemeToggle) {
+        if (isNowDark) {
+          mobileThemeToggle.classList.add('dark');
+        } else {
+          mobileThemeToggle.classList.remove('dark');
+        }
+      }
+    }
+
+    function toggleTheme() {
+      body.classList.toggle('dark');
+      localStorage.setItem('univerid-theme', body.classList.contains('dark') ? 'dark' : 'light');
+      syncTheme();
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+
+    // Mobile menu
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (mobileMenuToggle && mobileNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+      mobileNav.querySelector('.back-link').addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+      });
+    }
+
+    syncTheme();
+
+    // Schedule tabs (без изменений)
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const scheduleContent = document.getElementById('schedule-content');
+    const schedules = {
+      today: `
+        <div class="schedule-item">
+          <div class="schedule-time">09:00 – 10:35</div>
+          <div class="schedule-subject">Математический анализ</div>
+          <div class="schedule-location">Ауд. 526, корп. 8</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">10:50 – 12:25</div>
+          <div class="schedule-subject">Физика</div>
+          <div class="schedule-location">Лаб. 304, корп. 2</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">13:30 – 15:05</div>
+          <div class="schedule-subject">Программирование (Python)</div>
+          <div class="schedule-location">Ауд. 212, корп. 8</div>
+        </div>
+      `,
+      tomorrow: `
+        <div class="schedule-item">
+          <div class="schedule-time">10:00 – 11:35</div>
+          <div class="schedule-subject">Дискретная математика</div>
+          <div class="schedule-location">Ауд. 410, корп. 8</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">12:00 – 13:35</div>
+          <div class="schedule-subject">Английский язык</div>
+          <div class="schedule-location">Ауд. 15, корп. 3</div>
+        </div>
+      `,
+      week: `
+        <div class="schedule-item">
+          <div class="schedule-time">Пн, 09:00</div>
+          <div class="schedule-subject">Математический анализ</div>
+          <div class="schedule-location">Ауд. 526</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">Пн, 10:50</div>
+          <div class="schedule-subject">Физика</div>
+          <div class="schedule-location">Лаб. 304</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">Пн, 13:30</div>
+          <div class="schedule-subject">Программирование</div>
+          <div class="schedule-location">Ауд. 212</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">Вт, 10:00</div>
+          <div class="schedule-subject">Дискретная математика</div>
+          <div class="schedule-location">Ауд. 410</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">Вт, 12:00</div>
+          <div class="schedule-subject">Английский язык</div>
+          <div class="schedule-location">Ауд. 15</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">Ср, 09:00</div>
+          <div class="schedule-subject">Теория вероятностей</div>
+          <div class="schedule-location">Ауд. 321</div>
+        </div>
+      `
+    };
+
+    scheduleContent.innerHTML = schedules.today;
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        scheduleContent.innerHTML = schedules[btn.dataset.tab];
+      });
+    });
+  </script>
+</body>
+</html>

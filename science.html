@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Научная деятельность</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --accent: #3498db;
+      --light-gray: #f5f7fa;
+      --gray: #6c757d;
+      --border: #e0e0e0;
+    }
+    .dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --light-gray: #1e1e1e;
+      --border: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      margin-left: 24px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+    .theme-toggle::after {
+      content: '☀️';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      transition: transform 0.3s;
+    }
+    .dark .theme-toggle::after {
+      content: '🌙';
+      transform: translateX(16px);
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 0;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav .theme-toggle {
+      margin-top: 16px;
+      margin-left: 0;
+    }
+
+    main {
+      padding: 40px 0;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 32px 0 16px;
+      color: var(--accent);
+    }
+    p {
+      margin-bottom: 16px;
+    }
+    ul {
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      background: var(--light-gray);
+      padding: 24px;
+      border-radius: 16px;
+      margin: 32px 0;
+      border-left: 4px solid var(--accent);
+    }
+    .science-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .science-card {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border-top: 4px solid var(--accent);
+    }
+    .science-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    footer {
+      background: var(--light-gray);
+      padding: 40px 0 20px;
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-section h3 {
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+    .footer-section a {
+      color: var(--gray);
+      text-decoration: none;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* === Мобильные стили === */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .desktop-nav,
+      .theme-toggle:not(.mobile) {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .mobile-nav.active {
+        display: block;
+      }
+      .footer-content {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">UniveriD</a>
+        <div class="header-right">
+          <nav class="desktop-nav">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Научная деятельность и исследовательская среда</h1>
+      <div class="highlight">
+        <p>UniveriD — это не только практика и карьера. Это <strong>платформа для науки</strong>, где каждый студент может стать исследователем, опубликовать статью, получить грант и внести вклад в будущее.</p>
+      </div>
+      <div class="science-grid">
+        <div class="science-card">
+          <h3>🔬 Лаборатории и группы</h3>
+          <p>Каталог научных групп: описание, проекты, руководители, требования. Найди направление по душе.</p>
+        </div>
+        <div class="science-card">
+          <h3>👨‍🏫 Поиск научрука</h3>
+          <p>Фильтры: интересы, публикации, язык, стиль руководства. Отзывы от студентов: “Даёт свободу”, “Требователен, но справедлив”.</p>
+        </div>
+        <div class="science-card">
+          <h3>📅 Научные мероприятия</h3>
+          <p>Конференции, семинары, защиты, воркшопы. Онлайн-регистрация, напоминания, QR-чекин.</p>
+        </div>
+        <div class="science-card">
+          <h3>📝 Подача тезисов</h3>
+          <p>Онлайн-форма для подачи докладов на конференции вуза. Автоматическая проверка формата.</p>
+        </div>
+        <div class="science-card">
+          <h3>💰 База грантов</h3>
+          <p>Внутренние и внешние гранты: РНФ, РФФИ, Минобрнауки. Дедлайны, требования, примеры успешных заявок.</p>
+        </div>
+        <div class="science-card">
+          <h3>📚 Интеграция с базами</h3>
+          <p>Прямой доступ к eLibrary, Scopus, РИНЦ. Импорт публикаций в портфолио в 1 клик.</p>
+        </div>
+        <div class="science-card">
+          <h3>🎓 Научный наставник</h3>
+          <p>Система связки “профессор — магистрант — бакалавр”. Начни с малого — и вырасти в исследователя.</p>
+        </div>
+        <div class="science-card">
+          <h3>🏆 Научное портфолио</h3>
+          <p>Цифровой профиль исследователя: публикации, цитирования, гранты, проекты, доклады.</p>
+        </div>
+      </div>
+      <h2>Как начать заниматься наукой?</h2>
+      <ul>
+        <li>Пройди гайд “Как начать?” — с кейсами и пошаговыми инструкциями.</li>
+        <li>Запишись на консультацию к научному руководителю.</li>
+        <li>Подай заявку на внутренний грант на пилотное исследование (до 50 000 ₽).</li>
+        <li>Поделись своим research-постом в ленте университета.</li>
+      </ul>
+      <h2>Для продвинутых исследователей</h2>
+      <ul>
+        <li>Push-уведомления: “Грант ИИ — дедлайн через 7 дней”</li>
+        <li>Аналитика: “Твои публикации цитируют в 5 странах”</li>
+        <li>“Научный челлендж”: конкурс на лучший research-пост — приз от РАН</li>
+        <li>Возможность создать свою исследовательскую инициативу и найти команду</li>
+      </ul>
+      <div class="highlight">
+        <p><strong>Факт:</strong> Студенты, активные в науке, в 2 раза чаще получают предложения от исследовательских лабораторий и PhD-программ за рубежом.</p>
+      </div>
+      <h2>Готов внести свой вклад в науку?</h2>
+      <p>Открой раздел “Наука” → выбери лабораторию → свяжись с руководителем → начни своё исследование.<br>
+      <strong>Будущее пишется сегодня — твоими руками.</strong></p>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="features.html">Возможности</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Тема
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const body = document.body;
+    const isDark = localStorage.getItem('univerid-theme') === 'dark';
+    if (isDark) body.classList.add('dark');
+
+    function syncTheme() {
+      const isNowDark = body.classList.contains('dark');
+      if (mobileThemeToggle) {
+        mobileThemeToggle.classList.toggle('dark', isNowDark);
+      }
+    }
+    function toggleTheme() {
+      body.classList.toggle('dark');
+      localStorage.setItem('univerid-theme', body.classList.contains('dark') ? 'dark' : 'light');
+      syncTheme();
+    }
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    syncTheme();
+
+    // Мобильное меню
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileMenuToggle && mobileNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

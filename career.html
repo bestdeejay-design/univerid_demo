@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Карьера, стажировки и проекты</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --accent: #e67e22;
+      --light-gray: #f5f7fa;
+      --gray: #6c757d;
+      --border: #e0e0e0;
+    }
+    .dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --light-gray: #1e1e1e;
+      --border: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      margin-left: 24px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+    .theme-toggle::after {
+      content: '☀️';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      transition: transform 0.3s;
+    }
+    .dark .theme-toggle::after {
+      content: '🌙';
+      transform: translateX(16px);
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 0;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav .theme-toggle {
+      margin-top: 16px;
+      margin-left: 0;
+    }
+
+    main {
+      padding: 40px 0;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 32px 0 16px;
+      color: var(--accent);
+    }
+    p {
+      margin-bottom: 16px;
+    }
+    ul {
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      background: var(--light-gray);
+      padding: 24px;
+      border-radius: 16px;
+      margin: 32px 0;
+      border-left: 4px solid var(--accent);
+    }
+    .opportunities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .opp-card {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border-top: 4px solid var(--accent);
+    }
+    .opp-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    footer {
+      background: var(--light-gray);
+      padding: 40px 0 20px;
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-section h3 {
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+    .footer-section a {
+      color: var(--gray);
+      text-decoration: none;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* === Мобильные стили === */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .desktop-nav,
+      .theme-toggle:not(.mobile) {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .mobile-nav.active {
+        display: block;
+      }
+      .footer-content {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">UniveriD</a>
+        <div class="header-right">
+          <nav class="desktop-nav">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Карьера, стажировки и проекты</h1>
+
+      <div class="highlight">
+        <p>UniveriD — это не просто учёба. Это <strong>мост в профессию</strong>, где ты можешь найти стажировку, выполнить реальный проект от стартапа, построить портфолио и устроиться на работу — <strong>ещё до диплома</strong>.</p>
+      </div>
+
+      <div class="opportunities-grid">
+        <div class="opp-card">
+          <h3>💼 Вакансии и стажировки</h3>
+          <p>Проверенные предложения от IT-компаний, банков, промышленных предприятий. Фильтры: формат, оплата, локация, срок.</p>
+        </div>
+        <div class="opp-card">
+          <h3>🚀 Микро-задачи от стартапов</h3>
+          <p>Баг-хантинг, дизайн, маркетинг, исследование рынка. Выполни за выходные — получи деньги и бейдж.</p>
+        </div>
+        <div class="opp-card">
+          <h3>🌍 Волонтёрство и соцпроекты</h3>
+          <p>Помоги НКО, участвуй в городских инициативах, развивай soft skills и получай рекомендации.</p>
+        </div>
+        <div class="opp-card">
+          <h3>🎓 Практики и микро-стажировки</h3>
+          <p>Проекты на 1–2 недели для быстрого погружения. От Сбера, Яндекса, ВКонтакте, Ростелекома и других.</p>
+        </div>
+      </div>
+
+      <h2>Как это работает?</h2>
+      <ul>
+        <li><strong>Умные рекомендации</strong> — система предлагает тебе то, что подходит по специальности, курсу, навыкам и интересам.</li>
+        <li><strong>Цифровое резюме</strong> — хранится внутри приложения, отправляется работодателю в 1 клик.</li>
+        <li><strong>Отклик за 5 секунд</strong> — без загрузки файлов, без заполнения форм.</li>
+        <li><strong>Личный кабинет соискателя</strong> — статусы заявок, история откликов, отзывы компаний.</li>
+        <li><strong>Бейджи и достижения</strong> — “Прошёл практику в Тинькофф”, “Помог стартапу — получил опыт в маркетинге”.</li>
+        <li><strong>Интеграция с hh.ru, LinkedIn, Startup.jobs</strong> — единая точка входа во все карьерные платформы.</li>
+      </ul>
+
+      <h2>Для студентов — опыт. Для компаний — таланты.</h2>
+      <p>Работодатели получают доступ к <strong>проверенным, мотивированным студентам</strong>, а вы — к <strong>реальным задачам и деньгам</strong>.</p>
+
+      <div class="highlight">
+        <p><strong>Пример:</strong> Стартап публикует задачу: “Найди 5 UX-багов в нашем приложении”. Вы находите 7 — получаете 5 000 ₽ + бейдж “UX-детектив”. Через неделю — приглашение на стажировку.</p>
+      </div>
+
+      <h2>Аналитика и развитие</h2>
+      <ul>
+        <li>“Ты выполнил 12 заданий — это <strong>+30% к шансу трудоустройства</strong>”</li>
+        <li>“Твой карьерный трек: навыки, проекты, опыт”</li>
+        <li>“ТОП-5 компаний, принимающих студентов твоего вуза”</li>
+        <li>“Средняя зарплата выпускников твоей специальности — 120 000 ₽”</li>
+      </ul>
+
+      <h2>Готов начать?</h2>
+      <p>Войди в свой профиль → открой раздел «Карьера» → найди первую возможность.<br>
+      <strong>Первый шаг к профессии — уже внутри UniveriD.</strong></p>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="features.html">Возможности</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const body = document.body;
+    const isDark = localStorage.getItem('univerid-theme') === 'dark';
+    if (isDark) body.classList.add('dark');
+
+    function syncTheme() {
+      const isNowDark = body.classList.contains('dark');
+      if (mobileThemeToggle) {
+        mobileThemeToggle.classList.toggle('dark', isNowDark);
+      }
+    }
+    function toggleTheme() {
+      body.classList.toggle('dark');
+      localStorage.setItem('univerid-theme', body.classList.contains('dark') ? 'dark' : 'light');
+      syncTheme();
+    }
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    syncTheme();
+
+    // Mobile menu
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileMenuToggle && mobileNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

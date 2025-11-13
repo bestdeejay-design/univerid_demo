@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Жильё и общежитие</title>
+  <style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --accent: #4361ee;
+    --light-gray: #f5f7fa;
+    --gray: #6c757d;
+    --border: #e0e0e0;
+    }
+    .dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --light-gray: #1e1e1e;
+      --border: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      margin-left: 24px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+    .theme-toggle::after {
+      content: '☀️';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      transition: transform 0.3s;
+    }
+    .dark .theme-toggle::after {
+      content: '🌙';
+      transform: translateX(16px);
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 0;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav .theme-toggle {
+      margin-top: 16px;
+      margin-left: 0;
+    }
+
+    main {
+      padding: 40px 0;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 32px 0 16px;
+      color: var(--accent);
+    }
+    p {
+      margin-bottom: 16px;
+    }
+    ul {
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      background: var(--light-gray);
+      padding: 24px;
+      border-radius: 16px;
+      margin: 32px 0;
+      border-left: 4px solid var(--accent);
+    }
+    .housing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .housing-card {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border-top: 4px solid var(--accent);
+    }
+    .housing-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    footer {
+      background: var(--light-gray);
+      padding: 40px 0 20px;
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-section h3 {
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+    .footer-section a {
+      color: var(--gray);
+      text-decoration: none;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* === Мобильные стили === */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .desktop-nav,
+      .theme-toggle:not(.mobile) {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .mobile-nav.active {
+        display: block;
+      }
+      .footer-content {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">UniveriD</a>
+        <div class="header-right">
+          <nav class="desktop-nav">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Жильё, общежитие и аренда</h1>
+      <div class="highlight">
+        <p>UniveriD помогает тебе найти <strong>безопасное, удобное и недорогое жильё</strong> — от первого курса до защиты диплома.<br>
+        Общежитие, квартира рядом с вузом или студия в партнёрском ЖК — всё под контролем в одном приложении.</p>
+      </div>
+
+      <div class="housing-grid">
+        <div class="housing-card">
+          <h3>🏠 Общежитие</h3>
+          <p>Онлайн-заявка на заселение, электронный договор, оплата, статус комнаты, соседи, заявки на ремонт — всё в личном кабинете.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🏙️ Аренда рядом с вузом</h3>
+          <p>Карта с проверенными объявлениями: фильтры по цене, метро, мебели. Только верифицированные арендодатели и агентства.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🏢 Студенческие ЖК</h3>
+          <p>Партнёрства с ПИК, ЛСР, RBI: спеццены, годовые контракты, welcome-пакеты, умные дома. Бронирование — в 1 клик.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🛡️ Безопасность</h3>
+          <p>Чек-лист аренды, чёрный список мошенников, онлайн-юрист, кнопка SOS. Мы заботимся о твоей безопасности.</p>
+        </div>
+        <div class="housing-card">
+          <h3>📊 Аналитика</h3>
+          <p>«Средняя цена аренды рядом с твоим корпусом — 22 000 ₽», «ТОП-5 безопасных районов» — данные от студентов и администрации.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🎁 Льготы и бонусы</h3>
+          <p>–20% на годовой контракт, первый месяц бесплатно, кэшбэк в баллах, welcome-пакет для первокурсников.</p>
+        </div>
+      </div>
+
+      <h2>Как это работает?</h2>
+      <ul>
+        <li><strong>Для проживающих в общежитии</strong>: подаёшь заявку → подписываешь договор через Госуслуги → оплачиваешь → видишь соседей и правила.</li>
+        <li><strong>Для снимающих</strong>: фильтруешь по бюджету → читаешь отзывы → общаешься с арендодателем → подписываешь цифровой договор → заселяешься.</li>
+        <li><strong>Для иногородних</strong>: «Бюджетный гид по Петербургу», «ТОП-10 квартир за 15 000 ₽», «Комната с русскоговорящим соседом».</li>
+      </ul>
+
+      <h2>Для иностранных студентов</h2>
+      <ul>
+        <li>Гид по жилью на английском / арабском / китайском.</li>
+        <li>Партнёрства с международными апарт-отелями (The Student Hotel и др.).</li>
+        <li>Помощь в открытии счёта для оплаты аренды.</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>Важно:</strong> Все объявления проходят проверку. Мы не допускаем мошенников.<br>
+        Если что-то пошло не так — жми «SOS» → вызов охраны, психолога или юриста.</p>
+      </div>
+
+      <h2>Геймификация и поддержка</h2>
+      <ul>
+        <li>«Арендатор месяца» — за чистоту и помощь соседям.</li>
+        <li>Баллы за своевременную оплату → обмен на скидку или мерч.</li>
+        <li>«Обмен комнатами» — найди соседа по интересам: тихо/громко, учится/работает.</li>
+        <li>Социальное жильё — для студентов из малообеспеченных семей.</li>
+      </ul>
+
+      <h2>Готов найти своё жильё?</h2>
+      <p>Открой раздел «Жильё» в UniveriD → выбери формат → начни новую главу студенческой жизни.<br>
+      <strong>Ты не один — мы с тобой от заселения до выпуска.</strong></p>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="features.html">Возможности</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Тема
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const body = document.body;
+    const isDark = localStorage.getItem('univerid-theme') === 'dark';
+    if (isDark) body.classList.add('dark');
+
+    function syncTheme() {
+      const isNowDark = body.classList.contains('dark');
+      if (mobileThemeToggle) {
+        mobileThemeToggle.classList.toggle('dark', isNowDark);
+      }
+    }
+    function toggleTheme() {
+      body.classList.toggle('dark');
+      localStorage.setItem('univerid-theme', body.classList.contains('dark') ? 'dark' : 'light');
+      syncTheme();
+    }
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    syncTheme();
+
+    // Мобильное меню
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileMenuToggle && mobileNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
