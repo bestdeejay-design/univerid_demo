@@ -21,13 +21,21 @@ def create_university_page(name, description, university_type):
         'college': 'Колледж'
     }.get(university_type, university_type)
     
-    # Generate the page content
+    # Generate the page content using the improved template
     page_content = f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="{name} — {description}. Узнайте больше о программе, условиях поступления и студенческой жизни.">
+  <meta name="keywords" content="{name}, образование, {type_text.lower()}, поступление, Санкт-Петербург">
+  <meta name="author" content="UniveriD">
+  <meta property="og:title" content="{name} | UniveriD" />
+  <meta property="og:description" content="{description}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://univerid.ru/{slugify(name)}-university.html" />
   <title>{name} | UniveriD</title>
+  <link rel="canonical" href="https://univerid.ru/{slugify(name)}-university.html" />
   <style>
     :root {{
       --bg: #ffffff;
@@ -76,6 +84,9 @@ def create_university_page(name, description, university_type):
       font-weight: 800;
       color: var(--accent);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }}
     .header-right {{
       display: flex;
@@ -274,9 +285,16 @@ def create_university_page(name, description, university_type):
   <div class="container">
     <header>
       <div class="header-content">
-        <a href="index.html" class="logo">UniveriD</a>
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
         <div class="header-right">
-          <nav class="desktop-nav">
+          <nav class="desktop-nav" aria-label="Основная навигация">
             <a href="index.html">Главная</a>
             <a href="features.html">Возможности</a>
             <a href="about.html">О проекте</a>
@@ -301,6 +319,7 @@ def create_university_page(name, description, university_type):
       <section class="hero">
         <h1>{name}</h1>
         <p>{description}</p>
+        <a href="https://univerid.ru" class="btn">Узнать больше</a>
       </section>
 
       <section class="features">
