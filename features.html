@@ -4,11 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UniveriD — Возможности</title>
-  <link rel="stylesheet" href="styles/features.css">
-</head>
+  <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .feature-category {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 16px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .feature-category h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+  </style></head>
 <body>
   <div class="container">
-    <header>
+        <header>
       <div class="header-content">
         <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,14 +117,13 @@
     </main>
   </div>
 
-  <footer>
+    <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
           <h3>UniveriD</h3>
           <ul>
             <li><a href="index.html">Главная</a></li>
-            <li><a href="features.html">Возможности</a></li>
             <li><a href="about.html">О проекте</a></li>
             <li><a href="universities.html">Вузы Петербурга</a></li>
             <li><a href="partners.html">Партнёрам</a></li>
@@ -118,7 +151,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
   <script>
     // Клик по карточкам
     document.querySelectorAll('.feature-card[data-href]').forEach(card => {
