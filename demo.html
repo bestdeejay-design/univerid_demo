@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UniveriD — Демонстрация</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/demo.css">
 </head>
 <body>
   <div class="container">
@@ -97,6 +98,73 @@
         <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
       </div>
     </div>
-  </footer>    <script src="js/main.js"></script>
+  </footer>    
+  <script src="js/main.js"></script>
+  <script>
+    // JavaScript для работы вкладок расписания
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const scheduleContent = document.getElementById('schedule-content');
+
+      // Пример данных расписания
+      const scheduleData = {
+        today: [
+          { time: '09:00 - 10:30', subject: 'Математический анализ', location: 'Ауд. 205' },
+          { time: '11:00 - 12:30', subject: 'Физика', location: 'Ауд. 301' },
+          { time: '13:30 - 15:00', subject: 'Программирование', location: 'Комп. класс 1' }
+        ],
+        tomorrow: [
+          { time: '10:00 - 11:30', subject: 'Линейная алгебра', location: 'Ауд. 203' },
+          { time: '12:00 - 13:30', subject: 'История', location: 'Ауд. 101' },
+          { time: '15:00 - 16:30', subject: 'Физкультура', location: 'Спортзал' }
+        ],
+        week: [
+          { time: 'Пн 09:00', subject: 'Мат. анализ', location: 'Ауд. 205' },
+          { time: 'Вт 11:00', subject: 'Физика', location: 'Ауд. 301' },
+          { time: 'Ср 13:30', subject: 'Программирование', location: 'Комп. класс 1' },
+          { time: 'Чт 10:00', subject: 'Алгебра', location: 'Ауд. 203' },
+          { time: 'Пт 12:00', subject: 'История', location: 'Ауд. 101' }
+        ]
+      };
+
+      // Функция для отображения расписания
+      function showSchedule(schedule) {
+        if (!schedule || schedule.length === 0) {
+          scheduleContent.innerHTML = '<p>На выбранный период расписание отсутствует</p>';
+          return;
+        }
+
+        let html = '<div class="schedule-list">';
+        schedule.forEach(item => {
+          html += `
+            <div class="schedule-item">
+              <div class="schedule-time">${item.time}</div>
+              <div class="schedule-subject">${item.subject}</div>
+              <div class="schedule-location">${item.location}</div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        scheduleContent.innerHTML = html;
+      }
+
+      // Обработчики для вкладок
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Убираем активный класс у всех кнопок
+          tabBtns.forEach(b => b.classList.remove('active'));
+          // Добавляем активный класс к нажатой кнопке
+          btn.classList.add('active');
+          
+          // Показываем соответствующее расписание
+          const tab = btn.getAttribute('data-tab');
+          showSchedule(scheduleData[tab]);
+        });
+      });
+
+      // Инициализация - показываем расписание на сегодня
+      showSchedule(scheduleData.today);
+    });
+  </script>
 </body>
 </html>
