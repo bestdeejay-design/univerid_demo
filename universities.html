@@ -4,6 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UniveriD — Вузы и колледжи</title>
+  <style>
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+  </style>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -701,5 +724,59 @@
       </div>
     </div>
   </footer>    <script src="js/main.js"></script>
+  <script>
+    // --- Фильтрация с рандомом (работает даже с 3 карточками) ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const universitiesGrid = document.querySelector('.universities-grid');
+    // Получаем все элементы с классом uni-card-link
+    const allCardLinks = Array.from(document.querySelectorAll('.uni-card-link'));
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function applyFilter(type) {
+      let filteredItems = [];
+      if (type === 'all') {
+        filteredItems = shuffleArray(allCardLinks);
+      } else {
+        const itemsOfType = allCardLinks.filter(link => link.querySelector('.uni-card').dataset.type === type);
+        filteredItems = shuffleArray(itemsOfType);
+      }
+      universitiesGrid.innerHTML = '';
+      filteredItems.forEach(item => universitiesGrid.appendChild(item));
+    }
+
+    applyFilter('all');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(btn.dataset.type);
+      });
+    });
+  </script>
+  <!-- GSAP анимация для карточек -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // GSAP анимация для карточек
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.from('.uni-card', {
+          duration: 0.6,
+          y: 20,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out"
+        });
+      }
+    });
+  </script>
 </body>
 </html>
