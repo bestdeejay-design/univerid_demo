@@ -4,22 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UniveriD — Студенческий профиль</title>
-  <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/demo.css">
 </head>
 <body>
   <div class="container">
-    <header>
+        <header>
       <div class="header-content">
-        <a href="index.html" class="logo">UniveriD</a>
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
         <div class="header-right">
-          <a href="index.html" class="back-link">Выход</a>
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
           <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
           <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
         </div>
       </div>
       <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
-        <a href="index.html" class="back-link">Выход</a>
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
         <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
       </nav>
     </header>
@@ -49,130 +65,38 @@
 
   </div>
 
-  <footer>
+    <footer>
     <div class="container">
-      <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
     </div>
-  </footer>
-
-  <script>
-    // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-    const body = document.body;
-    const isDark = localStorage.getItem('univerid-theme') === 'dark';
-    if (isDark) body.classList.add('dark');
-
-    function syncTheme() {
-      const isNowDark = body.classList.contains('dark');
-      if (mobileThemeToggle) {
-        if (isNowDark) {
-          mobileThemeToggle.classList.add('dark');
-        } else {
-          mobileThemeToggle.classList.remove('dark');
-        }
-      }
-    }
-
-    function toggleTheme() {
-      body.classList.toggle('dark');
-      localStorage.setItem('univerid-theme', body.classList.contains('dark') ? 'dark' : 'light');
-      syncTheme();
-    }
-
-    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
-    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
-
-    // Mobile menu
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-
-    if (mobileMenuToggle && mobileNav) {
-      mobileMenuToggle.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-      });
-      mobileNav.querySelector('.back-link').addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-      });
-    }
-
-    syncTheme();
-
-    // Schedule tabs (без изменений)
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const scheduleContent = document.getElementById('schedule-content');
-    const schedules = {
-      today: `
-        <div class="schedule-item">
-          <div class="schedule-time">09:00 – 10:35</div>
-          <div class="schedule-subject">Математический анализ</div>
-          <div class="schedule-location">Ауд. 526, корп. 8</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">10:50 – 12:25</div>
-          <div class="schedule-subject">Физика</div>
-          <div class="schedule-location">Лаб. 304, корп. 2</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">13:30 – 15:05</div>
-          <div class="schedule-subject">Программирование (Python)</div>
-          <div class="schedule-location">Ауд. 212, корп. 8</div>
-        </div>
-      `,
-      tomorrow: `
-        <div class="schedule-item">
-          <div class="schedule-time">10:00 – 11:35</div>
-          <div class="schedule-subject">Дискретная математика</div>
-          <div class="schedule-location">Ауд. 410, корп. 8</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">12:00 – 13:35</div>
-          <div class="schedule-subject">Английский язык</div>
-          <div class="schedule-location">Ауд. 15, корп. 3</div>
-        </div>
-      `,
-      week: `
-        <div class="schedule-item">
-          <div class="schedule-time">Пн, 09:00</div>
-          <div class="schedule-subject">Математический анализ</div>
-          <div class="schedule-location">Ауд. 526</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">Пн, 10:50</div>
-          <div class="schedule-subject">Физика</div>
-          <div class="schedule-location">Лаб. 304</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">Пн, 13:30</div>
-          <div class="schedule-subject">Программирование</div>
-          <div class="schedule-location">Ауд. 212</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">Вт, 10:00</div>
-          <div class="schedule-subject">Дискретная математика</div>
-          <div class="schedule-location">Ауд. 410</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">Вт, 12:00</div>
-          <div class="schedule-subject">Английский язык</div>
-          <div class="schedule-location">Ауд. 15</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">Ср, 09:00</div>
-          <div class="schedule-subject">Теория вероятностей</div>
-          <div class="schedule-location">Ауд. 321</div>
-        </div>
-      `
-    };
-
-    scheduleContent.innerHTML = schedules.today;
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        scheduleContent.innerHTML = schedules[btn.dataset.tab];
-      });
-    });
-  </script>
+  </footer>  <script src="js/main.js"></script>
 </body>
 </html>

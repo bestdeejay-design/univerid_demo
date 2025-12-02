@@ -1,3 +1,1 @@
-PROJECT_STRUCTURE.md is a source file, and there are no build artifacts, dependencies, or temporary files in the changes list.
-
-(empty — output nothing)
+Nothing should be ignored based on the provided file changes, as they consist only of source files (Python script and HTML/CSS files) without any build artifacts, dependencies, or temporary files.
