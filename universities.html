@@ -20,9 +20,18 @@
       font-weight: 500;
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
+      color: var(--text);
+    }
+    .dark .filter-btn {
+      color: var(--text);
     }
     .filter-btn.active,
     .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .dark .filter-btn.active,
+    .dark .filter-btn:hover {
       background: var(--accent);
       color: white;
     }
