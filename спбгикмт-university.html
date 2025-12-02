@@ -4,255 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>СПбГИКМТ | UniveriD</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --accent: #4361ee;
-      --light-gray: #f5f7fa;
-      --gray: #6c757d;
-      --border: #e0e0e0;
-    }
-    .dark {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --light-gray: #1e1e1e;
-      --border: #333;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    header {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      margin-left: 24px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      width: 40px;
-      height: 24px;
-      position: relative;
-      cursor: pointer;
-    }
-    .theme-toggle::after {
-      content: '☀️';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      transition: transform 0.3s;
-    }
-    .dark .theme-toggle::after {
-      content: '🌙';
-      transform: translateX(16px);
-    }
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text);
-      cursor: pointer;
-    }
-    .mobile-nav {
-      display: none;
-      padding: 16px 0;
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-    .mobile-nav a {
-      display: block;
-      padding: 12px 0;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav .theme-toggle {
-      margin-top: 16px;
-      margin-left: 0;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 60px 0 40px;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 32px;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 12px 32px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #3a56e0;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      padding: 40px 0;
-    }
-    .feature-card {
-      background: var(--light-gray);
-      padding: 24px;
-      border-radius: 16px;
-      border-left: 4px solid var(--accent);
-    }
-    .feature-card h3 {
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-    .feature-card p {
-      font-size: 1rem;
-      color: var(--text);
-      opacity: 0.9;
-    }
-    footer {
-      background: var(--light-gray);
-      padding: 40px 0 20px;
-      margin-top: 80px;
-      border-top: 1px solid var(--border);
-    }
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 30px;
-    }
-    .footer-section {
-      flex: 1;
-      min-width: 200px;
-    }
-    .footer-section h3 {
-      margin-bottom: 16px;
-      font-size: 1.2rem;
-    }
-    .footer-section ul {
-      list-style: none;
-    }
-    .footer-section ul li {
-      margin-bottom: 8px;
-    }
-    .footer-section a {
-      color: var(--gray);
-      text-decoration: none;
-    }
-    .footer-section a:hover {
-      color: var(--accent);
-    }
-    .footer-bottom {
-      text-align: center;
-      padding-top: 20px;
-      color: var(--gray);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* === Мобильные стили === */
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .desktop-nav,
-      .theme-toggle:not(.mobile) {
-        display: none;
-      }
-      .mobile-menu-toggle {
-        display: block;
-      }
-      .mobile-nav.active {
-        display: block;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      .footer-content {
-        flex-direction: column;
-        gap: 24px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <div class="container">
-    <header>
+        <header>
       <div class="header-content">
-        <a href="index.html" class="logo">UniveriD</a>
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
         <div class="header-right">
-          <nav class="desktop-nav">
+          <nav class="desktop-nav" aria-label="Основная навигация">
             <a href="index.html">Главная</a>
             <a href="features.html">Возможности</a>
             <a href="about.html">О проекте</a>
@@ -527,7 +294,7 @@
     </main>
   </div>
 
-  <footer>
+    <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
@@ -561,59 +328,6 @@
     </div>
   </footer>
 
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-    const body = document.body;
-    const isDark = localStorage.getItem('univerid-theme') === 'dark';
-
-    if (isDark) {
-      body.classList.add('dark');
-    }
-
-    function syncTheme() {
-      const isNowDark = body.classList.contains('dark');
-      if (mobileThemeToggle) {
-        if (isNowDark) {
-          mobileThemeToggle.classList.add('dark');
-        } else {
-          mobileThemeToggle.classList.remove('dark');
-        }
-      }
-    }
-
-    function toggleTheme() {
-      body.classList.toggle('dark');
-      localStorage.setItem('univerid-theme', body.classList.contains('dark') ? 'dark' : 'light');
-      syncTheme();
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', toggleTheme);
-    }
-    if (mobileThemeToggle) {
-      mobileThemeToggle.addEventListener('click', toggleTheme);
-    }
-
-    // Мобильное меню
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-
-    if (mobileMenuToggle && mobileNav) {
-      mobileMenuToggle.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-      });
-
-      // Закрытие при клике на ссылку
-      mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileNav.classList.remove('active');
-        });
-      });
-    }
-
-    // Инициализация темы
-    syncTheme();
-  </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
