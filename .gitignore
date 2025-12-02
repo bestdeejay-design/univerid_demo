@@ -1,1 +1,1 @@
-(unempty — output nothing)
+Nothing should be ignored based on the provided file changes. The only modified file is `demo.html`, which is a source file and should not be added to .gitignore.
