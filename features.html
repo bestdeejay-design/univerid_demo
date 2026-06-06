@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Возможности</title>
+  <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .feature-category {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 16px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .feature-category h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+  </style></head>
+<body>
+  <div class="container">
+        <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Возможности UniveriD</h1>
+      <p class="intro">Одно приложение — сотни функций для учёбы, карьеры, жизни и развития. Выберите направление, чтобы узнать подробнее.</p>
+      <div class="features-grid">
+        <div class="feature-card" data-href="career.html">
+          <div class="feature-icon">💼</div>
+          <h3>Карьера и стажировки</h3>
+          <p>Вакансии, практики, микро-задачи от стартапов, резюме, карьерные консультации.</p>
+        </div>
+        <div class="feature-card" data-href="benefits.html">
+          <div class="feature-icon">🎁</div>
+          <h3>Льготы и бонусы</h3>
+          <p>Скидки в кафе, IT, спорт, транспорт, культуру. Программа лояльности «Campus+».</p>
+        </div>
+        <div class="feature-card" data-href="housing.html">
+          <div class="feature-icon">🏠</div>
+          <h3>Жильё и общежитие</h3>
+          <p>Онлайн-заявка, оплата, карта аренды, партнёрские ЖК, безопасность.</p>
+        </div>
+        <div class="feature-card" data-href="ecology.html">
+          <div class="feature-icon">🌱</div>
+          <h3>Эко-инициативы и ESG</h3>
+          <p>Переработка, волонтёрство, челленджи, экосчётчик, социальные проекты.</p>
+        </div>
+        <div class="feature-card" data-href="alumni.html">
+          <div class="feature-icon">🎓</div>
+          <h3>Для выпускников</h3>
+          <p>Нетворкинг, менторство, истории успеха, карьерная поддержка.</p>
+        </div>
+        <div class="feature-card" data-href="abiturients.html">
+          <div class="feature-icon">🔍</div>
+          <h3>Для абитуриентов</h3>
+          <p>Виртуальные туры, дни открытых дверей, олимпиады, калькулятор поступления.</p>
+        </div>
+        <div class="feature-card" data-href="science.html">
+          <div class="feature-icon">🔬</div>
+          <h3>Научная деятельность</h3>
+          <p>Лаборатории, гранты, публикации, научные руководители, конференции — всё для исследователей.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+    <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="js/main.js"></script>
+  <script>
+    // Клик по карточкам
+    document.querySelectorAll('.feature-card[data-href]').forEach(card => {
+      card.addEventListener('click', () => {
+        window.location.href = card.dataset.href;
+      });
+    });
+  </script>
+</body>
+</html>

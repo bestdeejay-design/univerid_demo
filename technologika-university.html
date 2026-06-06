@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Университет Техноложка | UniveriD</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+        <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main id="mainContent">
+      <section class="hero">
+        <h1>Университет Техноложка</h1>
+        <p>Современный университет, ориентированный на передовые технологии и инновации в образовании. Мы готовим специалистов будущего в области информационных технологий, инженерии и бизнеса.</p>
+      </section>
+
+      <section class="features">
+        <div class="feature-card">
+          <h3>Об университете</h3>
+          <p>Университет Техноложка был основан в 2005 году как передовой образовательный центр, специализирующийся на высоких технологиях и инновационном подходе к обучению. Наш университет сочетает в себе передовые методы преподавания, современное оборудование и опытных преподавателей.</p>
+          <p>Мы гордимся нашими традициями академического превосходства и стремлением к инновациям. Университет предлагает программы бакалавриата, магистратуры и докторантуры в различных областях науки и технологий.</p>
+          <h4>Наши ценности:</h4>
+          <ul>
+            <li>Инновации и технологии</li>
+            <li>Академическое превосходство</li>
+            <li>Международное сотрудничество</li>
+            <li>Развитие личного потенциала</li>
+            <li>Социальная ответственность</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Контакты</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 1rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+              <h4>Адрес</h4>
+              <p>г. Москва, ул. Технологическая, д. 15</p>
+            </div>
+            <div style="padding: 1rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+              <h4>Телефон</h4>
+              <p>+7 (495) 123-45-67</p>
+            </div>
+            <div style="padding: 1rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+              <h4>Email</h4>
+              <p>info@technologika.edu.ru</p>
+            </div>
+            <div style="padding: 1rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+              <h4>Часы работы</h4>
+              <p>Пн-Пт: 9:00-18:00</p>
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <h4>Приемная комиссия</h4>
+            <p><strong>Телефон:</strong> +7 (495) 123-45-68</p>
+            <p><strong>Email:</strong> admissions@technologika.edu.ru</p>
+            <p><strong>Часы работы:</strong> Пн-Пт: 9:00-17:00, Сб: 10:00-14:00</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <h3>Студентам</h3>
+          <p>Для студентов Университета Техноложка мы предоставляем широкий спектр ресурсов и возможностей для академического и личностного роста.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Личный кабинет</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Расписание</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Библиотека</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Портал</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Стипендии</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Организации</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Дополнительные услуги</h4>
+          <ul>
+            <li>Консультации с преподавателями</li>
+            <li>Психологическая поддержка</li>
+            <li>Карьерное консультирование</li>
+            <li>Спортзал и спортивные секции</li>
+            <li>Студенческие общежития</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Абитуриентам</h3>
+          <p>Добро пожаловать в Университет Техноложка! Мы рады приветствовать будущих студентов и предоставляем всю необходимую информацию для поступления.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Правила приема</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Документы</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Проходные баллы</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Регистрация</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Дни открытых дверей</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Курсы</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Направления подготовки</h4>
+          <ul>
+            <li>Информационные технологии</li>
+            <li>Компьютерная инженерия</li>
+            <li>Бизнес-информатика</li>
+            <li>Робототехника</li>
+            <li>Искусственный интеллект</li>
+            <li>Кибербезопасность</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Выпускникам</h3>
+          <p>Наши выпускники - гордость университета. Мы поддерживаем связь с бывшими студентами и помогаем в их профессиональном развитии.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Трудоустройство</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Сертификаты</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Альманах</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Клуб выпускников</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Рекомендации</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Образование</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Преимущества для выпускников</h4>
+          <ul>
+            <li>Доступ к библиотеке и ресурсам университета</li>
+            <li>Скидки на курсы повышения квалификации</li>
+            <li>Сетевые мероприятия и встречи</li>
+            <li>Карьерные консультации</li>
+            <li>Доступ к вакансиям от партнеров</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Магистратура</h3>
+          <p>Программы магистратуры в Университете Техноложка направлены на углубленное изучение специализированных областей и развитие исследовательских навыков.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Направления</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Требования</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Заявка</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Гранты</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Руководители</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Программы</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Популярные программы</h4>
+          <ul>
+            <li>Магистр компьютерных наук</li>
+            <li>Магистр информационных технологий</li>
+            <li>Магистр бизнес-анализа</li>
+            <li>Магистр робототехники</li>
+            <li>Магистр искусственного интеллекта</li>
+            <li>Магистр кибербезопасности</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Вакансии партнеров</h3>
+          <p>Наши партнеры предоставляют отличные возможности трудоустройства для студентов и выпускников. Ниже представлены актуальные вакансии от компаний-партнеров.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Технокомпания</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Инфосистемы</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">РоботПром</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">СайберСек</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">АИ-Лаб</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">БизнесТех</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Наши ключевые партнеры</h4>
+          <ul>
+            <li>Технокомпания</li>
+            <li>Инфосистемы</li>
+            <li>РоботПром</li>
+            <li>СайберСек</li>
+            <li>АИ-Лаб</li>
+            <li>БизнесТех</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Факультеты</h3>
+          <p>Университет Техноложка состоит из нескольких факультетов, каждый из которых специализируется на различных областях науки и технологий.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Информационные технологии</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Инженерии</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Бизнеса и управления</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Робототехники</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Искусственного интеллекта</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Кибербезопасности</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Межфакультетские программы</h4>
+          <ul>
+            <li>Цифровая трансформация бизнеса</li>
+            <li>Интеллектуальные системы управления</li>
+            <li>Киберфизические системы</li>
+            <li>Биоинформатика</li>
+            <li>Когнитивные науки</li>
+            <li>Информационная аналитика</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Научные лаборатории</h3>
+          <p>В университете функционируют современные научные лаборатории, где ведется активная исследовательская работа в различных областях.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Лаборатория ИИ</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Лаборатория кибербезопасности</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Лаборатория робототехники</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Лаборатория больших данных</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Лаборатория блокчейна</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Квантовых вычислений</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Научные проекты</h4>
+          <ul>
+            <li>Разработка квантовых алгоритмов</li>
+            <li>Исследование нейронных сетей</li>
+            <li>Разработка систем распознавания</li>
+            <li>Исследование блокчейн-технологий</li>
+            <li>Разработка робототехнических комплексов</li>
+            <li>Анализ больших данных</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Международное сотрудничество</h3>
+          <p>Университет Техноложка активно сотрудничает с ведущими мировыми университетами и научными центрами, предоставляя студентам и преподавателям возможности для международного обмена и совместных исследований.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Программы обмена</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Двойные дипломы</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Конференции</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Стажировки</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Университеты</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Гранты</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Партнеры по всему миру</h4>
+          <ul>
+            <li>MIT (США)</li>
+            <li>ETH Zurich (Швейцария)</li>
+            <li>Cambridge University (Великобритания)</li>
+            <li>Technical University of Munich (Германия)</li>
+            <li>National University of Singapore (Сингапур)</li>
+            <li>Tokyo Institute of Technology (Япония)</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Дополнительное образование</h3>
+          <p>Помимо основных образовательных программ, университет предлагает широкий спектр дополнительных курсов, тренингов и сертификационных программ.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Курсы повышения квалификации</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Переподготовка</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Онлайн-обучение</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Мастер-классы</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Хакатоны</a>
+            </div>
+            <div style="padding: 0.8rem; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+              <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Школы программирования</a>
+            </div>
+          </div>
+          <h4 style="margin-top: 1.5rem;">Популярные курсы</h4>
+          <ul>
+            <li>Разработка мобильных приложений</li>
+            <li>Анализ данных</li>
+            <li>Машинное обучение</li>
+            <li>Кибербезопасность</li>
+            <li>UX/UI-дизайн</li>
+            <li>Продуктовая аналитика</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

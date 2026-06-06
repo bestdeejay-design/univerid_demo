@@ -1,0 +1,843 @@
+<!DOCTYPE html>  
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Вузы и колледжи</title>
+  <style>
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      color: var(--text);
+    }
+    .dark .filter-btn {
+      color: var(--text);
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .dark .filter-btn.active,
+    .dark .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .universities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 20px 0;
+    }
+    
+    .uni-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .uni-card {
+      background: var(--light-gray);
+      padding: 24px;
+      border-radius: 16px;
+      border-left: 4px solid var(--accent);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .uni-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .uni-card .type {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    
+    .uni-card h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    
+    .uni-card p {
+      font-size: 1rem;
+      color: var(--text);
+      opacity: 0.9;
+      margin: 0;
+      flex-grow: 1;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+            <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Вузы и колледжи Санкт-Петербурга</h1>
+
+      <div class="filters">
+        <button class="filter-btn active" data-type="all">Все</button>
+        <button class="filter-btn" data-type="university">Университеты</button>
+        <button class="filter-btn" data-type="institute">Институты</button>
+        <button class="filter-btn" data-type="college">Колледжи и техникумы</button>
+      </div>
+
+      <div class="universities-grid">
+        <!-- 1 -->
+        <a href="spbgu-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="university">
+            <div class="type">Университет</div>
+            <h3>СПбГУ</h3>
+            <p><strong>Основан в 1724</strong> — первый университет России. Лидер в гуманитарных, юридических, естественных науках. Альма-матер Менделеева и Павлова.</p>
+          </div>
+        </a>
+
+
+<a href="спбпу-политех-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбПУ (Политех)</h3>
+    <p><strong>Основан в 1899</strong> — ведущий технический вуз страны. Сильные позиции в IT, инженерии, энергетике, AI и робототехнике.</p>
+  </div>
+</a>
+
+<a href="ниу-вшэ-санкт-петербург-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>НИУ ВШЭ — Санкт-Петербург</h3>
+    <p><strong>Открыт в 1998</strong> — кампус Вышки. Специализация: экономика, право, международные отношения, data science.</p>
+  </div>
+</a>
+
+<a href="ргпу-им-а-и-герцена-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>РГПУ им. А.И. Герцена</h3>
+    <p><strong>Основан в 1797</strong> — старейший педагогический вуз России. Лидер в подготовке учителей, психологов и дефектологов.</p>
+  </div>
+</a>
+
+<a href="спбгму-им-павлова-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГМУ им. Павлова</h3>
+    <p><strong>Основан в 1897</strong> — один из лучших медвузов РФ. Назван в честь Нобелевского лауреата. Специализация: медицина, стоматология, фармация.</p>
+  </div>
+</a>
+
+<a href="спбгуптд-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУПТД</h3>
+    <p><strong>Основан в 1828</strong> — ведущий вуз в области химии, биотехнологий, материаловедения и экологии.</p>
+  </div>
+</a>
+
+<a href="спбгэу-финэк-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГЭУ (Финэк)</h3>
+    <p><strong>Основан в 1930</strong> — специализация: экономика, финансы, менеджмент, бизнес-аналитика. Партнёрство с Big Four и банками.</p>
+  </div>
+</a>
+
+<a href="спбгикит-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГИКИТ</h3>
+    <p><strong>Основан в 1919</strong> — ведущий вуз в сфере кино, театра, телевидения и актёрского мастерства. Выпускники — лауреаты «Ники» и «Золотого льва».</p>
+  </div>
+</a>
+
+<a href="спбгавм-им-к-и-скрябина-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГАВМ им. К.И. Скрябина</h3>
+    <p><strong>Основан в 1921</strong> — ведущий ветеринарный вуз Северо-Запада. Подготавливает ветеринаров, биотехнологов, экологов.</p>
+  </div>
+</a>
+
+<a href="спбгасу-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГАСУ</h3>
+    <p><strong>Основан в 1832</strong> — архитектурно-строительный университет. Готовит архитекторов, урбанистов, инженеров-строителей.</p>
+  </div>
+</a>
+
+<a href="спбгут-бонч-бруевича-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУТ (Бонч-Бруевича)</h3>
+    <p><strong>Основан в 1930</strong> — лидер в телекоммуникациях, IT, кибербезопасности и связи. Партнёрство с «Ростелекомом», МТС, «ЭР-Телеком».</p>
+  </div>
+</a>
+
+<a href="спбгусэ-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУСЭ</h3>
+    <p><strong>Основан в 1913</strong> — специализация: международные отношения, лингвистика, туризм, гостиничный бизнес.</p>
+  </div>
+</a>
+
+<a href="спбгики-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУКИ</h3>
+    <p><strong>Основан в 1918</strong> — культурологический университет. Готовит специалистов по культуре, музееведению, библиотечному делу.</p>
+  </div>
+</a>
+
+<a href="спбгувк-военный-институт-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУВК (Военный институт)</h3>
+    <p><strong>Основан в 1990</strong> — вуз Минобороны РФ. Подготавливает офицеров для вооружённых сил по гуманитарным и техническим направлениям.</p>
+  </div>
+</a>
+
+<a href="спбгуп-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУП</h3>
+    <p><strong>Основан в 1906</strong> — ведущий вуз в области полиграфии, дизайна, упаковки, медиакоммуникаций.</p>
+  </div>
+</a>
+
+<a href="европейский-университет-в-санкт-петербурге-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>Европейский университет в Санкт-Петербурге</h3>
+    <p><strong>Основан в 1994</strong> — негосударственный вуз с международным уклоном. Специализация: социальные науки, антропология, история.</p>
+  </div>
+</a>
+
+<a href="спбгутд-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУТД</h3>
+    <p><strong>Основан в 1911</strong> — лидер в лёгкой промышленности, дизайне одежды, технологии швейного производства.</p>
+  </div>
+</a>
+
+<a href="спбгпу-бывш-мисис-санкт-петербург-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГПУ (бывш. МИСиС-Санкт-Петербург)</h3>
+    <p><strong>Основан в 1911</strong> — специализация: металлургия, горное дело, материаловедение, инженерия.</p>
+  </div>
+</a>
+
+<a href="санкт-петербургский-филиал-ранхигс-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>Санкт-Петербургский филиал РАНХиГС</h3>
+    <p><strong>Действует с 1991</strong> — государственная академия управления. Программы: госуправление, бизнес, MBA, цифровая трансформация.</p>
+  </div>
+</a>
+
+<a href="спбгупс-пгупс-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="university">
+    <div class="type">Университет</div>
+    <h3>СПбГУПС (ПГУПС)</h3>
+    <p><strong>Основан в 1809</strong> — один из старейших технических вузов. Специализация: железнодорожный транспорт, логистика, инфраструктура.</p>
+  </div>
+</a>
+        <!-- 2 -->
+        <a href="technologika-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="university">
+            <div class="type">Университет</div>
+            <h3>СПбГТИ (Техноложка)</h3>
+            <p><strong>Основан в 1828</strong> — один из старейших технических вузов России. Лидер в области химии, биотехнологий, пищевых технологий, материаловедения и экологии. Выпускает инженеров для нефтехимии, фармацевтики, green-tech и пищевой промышленности.</p>
+          </div>
+        </a>
+        <a href="военмех-им-д-ф-устинова-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>Военмех им. Д.Ф. Устинова</h3>
+            <p><strong>Основан в 1932</strong> — элитный вуз Минобороны. Подготавливает инженеров для ВПК, космоса, радиотехники.</p>
+          </div>
+        </a>
+
+        <a href="спбгэту-лэти-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГЭТУ «ЛЭТИ»</h3>
+            <p><strong>Основан в 1886</strong> — лидер в электротехнике, энергетике, кибербезопасности, IoT и робототехнике.</p>
+          </div>
+        </a>
+
+        <a href="спбгик-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИК</h3>
+            <p><strong>Основан в 1865</strong> — один из ведущих художественных вузов России. Специализация: живопись, скульптура, графика, дизайн.</p>
+          </div>
+        </a>
+
+        <a href="спбгитму-морская-академия-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИТМУ (Морская академия)</h3>
+            <p><strong>Основан в 1701</strong> — старейший морской вуз мира. Готовит капитанов, инженеров, логистов морского транспорта.</p>
+          </div>
+        </a>
+
+        <a href="спбгипср-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИПСР</h3>
+            <p><strong>Основан в 1930</strong> — специализация: психология, психотерапия, коррекционная педагогика, нейропсихология.</p>
+          </div>
+        </a>
+
+        <a href="спбгитмо-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИТМО</h3>
+            <p><strong>Основан в 1961</strong> — филиал МИСиС в СПб. Специализация: IT, металлургия, материаловедение.</p>
+          </div>
+        </a>
+
+        <a href="спбгиэу-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИЭУ</h3>
+            <p><strong>Основан в 1930</strong> — экономический институт. Подготавливает специалистов по финансам, аудиту, налогообложению.</p>
+          </div>
+        </a>
+
+        <a href="спбгикит-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИКиТ</h3>
+            <p><strong>Основан в 1992</strong> — специализация: кино, телевидение, актёрское мастерство, режиссура.</p>
+          </div>
+        </a>
+
+        <a href="спбгиу-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИУ</h3>
+            <p><strong>Основан в 1952</strong> — институт управления и экономики. Программы: менеджмент, логистика, госуправление.</p>
+          </div>
+        </a>
+
+        <a href="спбгиту-бывш-литмо-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИТУ (бывш. ЛИТМО)</h3>
+            <p><strong>Основан в 1900</strong> — ведущий вуз по оптике, точной механике, IT и мультимедиа.</p>
+          </div>
+        </a>
+
+        <a href="спбгитб-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИПСР</h3>
+          <p><strong>Основан в 1930</strong> — институт психологии и социальной работы. Акцент на практической психологии и социальной поддержке.</p>
+        </div>
+
+        <a href="спбгикмт-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИТБ</h3>
+            <p><strong>Основан в 1991</strong> — институт туризма и бизнеса. Специализация: гостиничный бизнес, туризм, event-менеджмент.</p>
+          </div>
+        </a>
+
+        <a href="спбгити-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИКМТ</h3>
+            <p><strong>Основан в 1930</strong> — институт культуры и искусств. Программы: хореография, музыка, театр, музееведение.</p>
+          </div>
+        </a>
+
+        <a href="спбгиа-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИТИ</h3>
+            <p><strong>Основан в 1922</strong> — институт технологии и управления. Специализация: пищевые технологии, биотехнологии, управление качеством.</p>
+          </div>
+        </a>
+
+        <a href="спбгиит-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИПСР</h3>
+          <p><strong>Основан в 1930</strong> — институт социальных технологий. Программы: социальная работа, конфликтология, медиация.</p>
+        </div>
+
+        <a href="спбгитэ-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИА</h3>
+            <p><strong>Основан в 1918</strong> — институт архитектуры и дизайна. Подготавливает архитекторов, дизайнеров интерьеров, ландшафтных архитекторов.</p>
+          </div>
+        </a>
+
+        <a href="спбгиэп-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИИТ</h3>
+            <p><strong>Основан в 1992</strong> — институт информационных технологий. Специализация: AI, кибербезопасность, разработка ПО.</p>
+          </div>
+        </a>
+
+        <a href="спбгилс-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИТЭ</h3>
+            <p><strong>Основан в 1930</strong> — институт транспорта и энергетики. Программы: логистика, транспортные системы, энергоэффективность.</p>
+          </div>
+        </a>
+
+        <a href="спбгикт-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИЭП</h3>
+            <p><strong>Основан в 1991</strong> — институт экономики и права. Специализация: юриспруденция, экономика, налоговое право.</p>
+          </div>
+        </a>
+
+        <a href="спбгипи-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИЛС</h3>
+            <p><strong>Основан в 1950</strong> — институт лесного хозяйства и садоводства. Программы: ландшафтный дизайн, агротехнологии, экология.</p>
+          </div>
+        </a>
+
+        <a href="спбгибу-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИКТ</h3>
+            <p><strong>Основан в 1995</strong> — институт коммуникационных технологий. Специализация: связи, телекоммуникации, медиа.</p>
+          </div>
+        </a>
+
+        <a href="спбгиис-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИПИ</h3>
+            <p><strong>Основан в 1930</strong> — институт педагогики и инноваций. Программы: цифровая педагогика, EdTech, управление образованием.</p>
+          </div>
+        </a>
+
+        <a href="спбгисэ-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+          <h3>СПбГИБУ</h3>
+            <p><strong>Основан в 1992</strong> — институт бизнеса и управления. Специализация: стартапы, предпринимательство, управленческий консалтинг.</p>
+          </div>
+        </a>
+
+        <a href="спбгиис-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+            <h3>СПбГИИС</h3>
+              <p><strong>Основан в 1960</strong> — институт инженерных систем. Программы: HVAC, умные здания, инженерная инфраструктура.</p>
+            </div>
+        </a>
+
+        <a href="спбгисэ-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="institute">
+            <div class="type">Институт</div>
+            <h3>СПбГИСЭ</h3>
+            <p><strong>Основан в 1991</strong> — институт социально-экономических наук. Специализация: социология, политология, экономика общественного сектора.</p>
+          </div>
+        </a>
+        <!-- 3 -->
+        <a href="петровский-колледж-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="college">
+            <div class="type">Колледж</div>
+            <h3>Петровский колледж</h3>
+            <p>Крупнейший многопрофильный колледж СПб. Направления: IT, экономика, право, дизайн, строительство, логистика. Партнёрства с СПбПУ, Сбером, ПВТ, РЖД. Современные лаборатории и сильная карьерная поддержка.</p>
+          </div>
+        </a>
+        <a href="кип-колледж-информатики-и-программирования-university.html" class="uni-card-link">
+          <div class="uni-card" data-type="college">
+            <div class="type">Колледж</div>
+            <h3>КИП (Колледж информатики и программирования)</h3>
+            <p>Современный IT-колледж. Партнёрство с Яндексом, Сбером, Microsoft. Подготовка по программированию, веб-разработке, кибербезопасности.</p>
+          </div>
+        </a>
+
+<a href="петербургский-колледж-связи-54-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Петербургский колледж связи №54</h3>
+    <p>Ведущий техникум в сфере связи и IT. Партнёрство с «Ростелекомом», МТС. Направления: сети, телеком, кибербезопасность.</p>
+  </div>
+</a>
+
+<a href="колледж-санкт-петербург-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж «Санкт-Петербург»</h3>
+    <p>Многопрофильный колледж: IT, экономика, туризм, дизайн. Современные лаборатории и практико-ориентированное обучение.</p>
+  </div>
+</a>
+
+<a href="политехнический-колледж-31-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Политехнический колледж №31</h3>
+    <p>Инженерно-технический колледж при Политехе. Направления: мехатроника, автоматизация, робототехника.</p>
+  </div>
+</a>
+
+<a href="колледж-железнодорожного-транспорта-3-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж железнодорожного транспорта №3</h3>
+    <p>Готовит специалистов для РЖД. Направления: логистика, управление на транспорте, инфраструктура.</p>
+  </div>
+</a>
+
+<a href="медицинский-колледж-1-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Медицинский колледж №1</h3>
+    <p>Подготавливает медсестёр, фельдшеров, лаборантов. Практика в ведущих клиниках Санкт-Петербурга.</p>
+  </div>
+</a>
+
+<a href="колледж-автоматизации-и-информационных-технологий-20-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж автоматизации и информационных технологий №20</h3>
+    <p>IT-специальности: программирование, базы данных, системное администрирование.</p>
+  </div>
+</a>
+
+<a href="колледж-управления-и-сервиса-32-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж управления и сервиса №32</h3>
+    <p>Направления: гостиничный бизнес, туризм, парикмахерское искусство, косметология.</p>
+  </div>
+</a>
+
+<a href="коллеж-современных-технологий-18-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Коллеж современных технологий №18</h3>
+    <p>Современные технические специальности: 3D-печать, CAD/CAM, инженерный дизайн.</p>
+  </div>
+</a>
+
+<a href="колледж-архитектуры-строительства-и-геоинформационных-технологий-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж архитектуры, строительства и геоинформационных технологий</h3>
+    <p>Специальности: архитектура, строительство, геодезия, BIM-технологии.</p>
+  </div>
+</a>
+
+<a href="технологический-колледж-21-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Технологический колледж №21</h3>
+    <p>Направления: пищевые технологии, химическая технология, биотехнологии.</p>
+  </div>
+</a>
+
+<a href="колледж-судостроения-и-прикладных-технологий-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж судостроения и прикладных технологий</h3>
+    <p>Специальности: судостроение, сварочное производство, инженерная графика.</p>
+  </div>
+</a>
+
+<a href="колледж-экономики-управления-и-права-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж экономики, управления и права</h3>
+    <p>Направления: бухгалтерия, право, экономика, банковское дело.</p>
+  </div>
+</a>
+
+<a href="колледж-музыкально-театрального-искусства-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж музыкально-театрального искусства</h3>
+    <p>Подготовка актёров, музыкантов, режиссёров, хореографов.</p>
+  </div>
+</a>
+
+<a href="колледж-дизайна-и-декоративно-прикладного-искусства-им-н-к-рериха-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж дизайна и декоративно-прикладного искусства им. Н.К. Рериха</h3>
+    <p>Специальности: графический дизайн, живопись, декоративно-прикладное искусство.</p>
+  </div>
+</a>
+
+<a href="колледж-водных-ресурсов-и-экологии-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж водных ресурсов и экологии</h3>
+    <p>Направления: водоочистка, экология, природообустройство.</p>
+  </div>
+</a>
+
+<a href="колледж-телекоммуникаций-7-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж телекоммуникаций №7</h3>
+    <p>Подготовка по направлениям: связи, IT, инфокоммуникационные технологии.</p>
+  </div>
+</a>
+
+<a href="колледж-ландшафтного-дизайна-и-садово-паркового-строительства-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж ландшафтного дизайна и садово-паркового строительства</h3>
+    <p>Специальности: ландшафтный дизайн, садово-парковое строительство, озеленение.</p>
+  </div>
+</a>
+
+<a href="колледж-индустрии-питания-и-сферы-услуг-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж индустрии питания и сферы услуг</h3>
+    <p>Направления: кулинария, кондитерское дело, гостиничный бизнес.</p>
+  </div>
+</a>
+
+<a href="колледж-цифровых-технологий-и-информационной-безопасности-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж цифровых технологий и информационной безопасности</h3>
+    <p>Специальности: кибербезопасность, разработка ПО, big data.</p>
+  </div>
+</a>
+
+<a href="колледж-международного-бизнеса-и-права-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж международного бизнеса и права</h3>
+    <p>Направления: международная торговля, логистика, юриспруденция.</p>
+  </div>
+</a>
+
+<a href="колледж-авиационного-и-промышленного-машиностроения-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж авиационного и промышленного машиностроения</h3>
+    <p>Специальности: авиастроение, станки с ЧПУ, мехатроника.</p>
+  </div>
+</a>
+
+<a href="колледж-энергетики-и-автоматики-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж энергетики и автоматики</h3>
+    <p>Направления: энергетика, автоматизация, релейная защита.</p>
+  </div>
+</a>
+
+<a href="колледж-кино-и-телевидения-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж кино и телевидения</h3>
+    <p>Подготовка: операторы, монтажёры, звукорежиссёры, сценаристы.</p>
+  </div>
+</a>
+
+<a href="колледж-психологии-и-социальной-работы-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж психологии и социальной работы</h3>
+    <p>Специальности: социальная работа, дошкольное образование, консультирование.</p>
+  </div>
+</a>
+
+<a href="колледж-фармацевтики-и-биомедицины-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж фармацевтики и биомедицины</h3>
+    <p>Направления: фармация, лабораторная диагностика, биотехнологии.</p>
+  </div>
+</a>
+
+<a href="колледж-современной-медицины-и-реабилитации-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж современной медицины и реабилитации</h3>
+    <p>Подготовка: медсёстры, массажисты, реабилитологи.</p>
+  </div>
+</a>
+
+<a href="колледж-цифровой-экономики-и-предпринимательства-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж цифровой экономики и предпринимательства</h3>
+    <p>Специальности: e-commerce, digital-маркетинг, стартапы, финтех.</p>
+  </div>
+</a>
+
+<a href="колледж-инженерных-технологий-и-робототехники-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж инженерных технологий и робототехники</h3>
+    <p>Направления: промышленная робототехника, автоматизация, IoT.</p>
+  </div>
+</a>
+
+<a href="колледж-международного-туризма-и-гостеприимства-university.html" class="uni-card-link">
+  <div class="uni-card" data-type="college">
+    <div class="type">Колледж</div>
+    <h3>Колледж международного туризма и гостеприимства</h3>
+    <p>Специальности: туризм, гостиничный бизнес, event-менеджмент.</p>
+  </div>
+</a>
+      </div>
+    </main>
+  </div>
+
+      <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>    <script src="js/main.js"></script>
+  <script>
+    // --- Фильтрация с рандомом (работает даже с 3 карточками) ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const universitiesGrid = document.querySelector('.universities-grid');
+    // Получаем все элементы с классом uni-card-link
+    const allCardLinks = Array.from(document.querySelectorAll('.uni-card-link'));
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function applyFilter(type) {
+      let filteredItems = [];
+      if (type === 'all') {
+        filteredItems = shuffleArray(allCardLinks);
+      } else {
+        const itemsOfType = allCardLinks.filter(link => link.querySelector('.uni-card').dataset.type === type);
+        filteredItems = shuffleArray(itemsOfType);
+      }
+      universitiesGrid.innerHTML = '';
+      filteredItems.forEach(item => universitiesGrid.appendChild(item));
+    }
+
+    applyFilter('all');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(btn.dataset.type);
+      });
+    });
+  </script>
+  <!-- GSAP анимация для карточек -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // GSAP анимация для карточек
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.from('.uni-card', {
+          duration: 0.6,
+          y: 20,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out"
+        });
+      }
+    });
+  </script>
+</body>
+</html>

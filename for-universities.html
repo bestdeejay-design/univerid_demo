@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Вузам и колледжам</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/for-universities.css">
+</head>
+<body>
+  <div class="container">
+        <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main id="mainContent">
+      <section class="hero">
+        <h1>Для вузов</h1>
+        <p>Платформа UniveriD для цифровой студенческой жизни в вашем университете</p>
+      </section>
+
+      <section class="section">
+        <h2>Интеграция с СЗИ</h2>
+        <p>UniveriD предоставляет готовые решения для интеграции с Системами цифровой идентичности (СЗИ) вузов. Наша платформа поддерживает:</p>
+        <ul>
+          <li>Единый цифровой ID студента с подтверждением через СЗИ</li>
+          <li>Интеграцию с существующими системами вуза</li>
+          <li>Безопасное хранение и подтверждение данных</li>
+          <li>Совместимость с Госуслугами</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>API для партнёров</h2>
+        <p>Наше API позволяет партнёрам легко интегрироваться с платформой UniveriD:</p>
+        <ul>
+          <li>Проверка подлинности студенческого статуса</li>
+          <li>Доступ к разным уровням подтверждения</li>
+          <li>Интеграция с льготными программами</li>
+          <li>Маркетинговые инструменты для студентов</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Техническая документация</h2>
+        <p>Полная документация для разработчиков и специалистов по интеграции:</p>
+        <div class="documentation-grid">
+          <div class="doc-card">
+            <h4>API Reference</h4>
+            <p>Полная документация по всем endpoint'ам</p>
+            <a href="#">Читать →</a>
+          </div>
+          <div class="doc-card">
+            <h4>SDK для интеграции</h4>
+            <p>Библиотеки для популярных языков программирования</p>
+            <a href="#">Скачать →</a>
+          </div>
+          <div class="doc-card">
+            <h4>Примеры интеграции</h4>
+            <p>Примеры кода и пошаговые инструкции</p>
+            <a href="#">Просмотреть →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <h2>Готовы к интеграции?</h2>
+        <p>Свяжитесь с нами для обсуждения интеграции с вашим вузом</p>
+        <a href="mailto:hello@univerid.ru" class="btn">Связаться с нами</a>
+      </section>
+    </main>
+  </div>
+
+      <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>    <script src="js/main.js"></script>
+</body>
+</html>

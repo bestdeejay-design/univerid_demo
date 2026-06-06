@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Общежития</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/features.css">
+</head>
+<body>
+  <div class="container">
+        <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Жильё, общежитие и аренда</h1>
+      <div class="highlight">
+        <p>UniveriD помогает тебе найти <strong>безопасное, удобное и недорогое жильё</strong> — от первого курса до защиты диплома.<br>
+        Общежитие, квартира рядом с вузом или студия в партнёрском ЖК — всё под контролем в одном приложении.</p>
+      </div>
+
+      <div class="housing-grid">
+        <div class="housing-card">
+          <h3>🏠 Общежитие</h3>
+          <p>Онлайн-заявка на заселение, электронный договор, оплата, статус комнаты, соседи, заявки на ремонт — всё в личном кабинете.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🏙️ Аренда рядом с вузом</h3>
+          <p>Карта с проверенными объявлениями: фильтры по цене, метро, мебели. Только верифицированные арендодатели и агентства.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🏢 Студенческие ЖК</h3>
+          <p>Партнёрства с ПИК, ЛСР, RBI: спеццены, годовые контракты, welcome-пакеты, умные дома. Бронирование — в 1 клик.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🛡️ Безопасность</h3>
+          <p>Чек-лист аренды, чёрный список мошенников, онлайн-юрист, кнопка SOS. Мы заботимся о твоей безопасности.</p>
+        </div>
+        <div class="housing-card">
+          <h3>📊 Аналитика</h3>
+          <p>«Средняя цена аренды рядом с твоим корпусом — 22 000 ₽», «ТОП-5 безопасных районов» — данные от студентов и администрации.</p>
+        </div>
+        <div class="housing-card">
+          <h3>🎁 Льготы и бонусы</h3>
+          <p>–20% на годовой контракт, первый месяц бесплатно, кэшбэк в баллах, welcome-пакет для первокурсников.</p>
+        </div>
+      </div>
+
+      <h2>Как это работает?</h2>
+      <ul>
+        <li><strong>Для проживающих в общежитии</strong>: подаёшь заявку → подписываешь договор через Госуслуги → оплачиваешь → видишь соседей и правила.</li>
+        <li><strong>Для снимающих</strong>: фильтруешь по бюджету → читаешь отзывы → общаешься с арендодателем → подписываешь цифровой договор → заселяешься.</li>
+        <li><strong>Для иногородних</strong>: «Бюджетный гид по Петербургу», «ТОП-10 квартир за 15 000 ₽», «Комната с русскоговорящим соседом».</li>
+      </ul>
+
+      <h2>Для иностранных студентов</h2>
+      <ul>
+        <li>Гид по жилью на английском / арабском / китайском.</li>
+        <li>Партнёрства с международными апарт-отелями (The Student Hotel и др.).</li>
+        <li>Помощь в открытии счёта для оплаты аренды.</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>Важно:</strong> Все объявления проходят проверку. Мы не допускаем мошенников.<br>
+        Если что-то пошло не так — жми «SOS» → вызов охраны, психолога или юриста.</p>
+      </div>
+
+      <h2>Геймификация и поддержка</h2>
+      <ul>
+        <li>«Арендатор месяца» — за чистоту и помощь соседям.</li>
+        <li>Баллы за своевременную оплату → обмен на скидку или мерч.</li>
+        <li>«Обмен комнатами» — найди соседа по интересам: тихо/громко, учится/работает.</li>
+        <li>Социальное жильё — для студентов из малообеспеченных семей.</li>
+      </ul>
+
+      <h2>Готов найти своё жильё?</h2>
+      <p>Открой раздел «Жильё» в UniveriD → выбери формат → начни новую главу студенческой жизни.<br>
+      <strong>Ты не один — мы с тобой от заселения до выпуска.</strong></p>
+    </main>
+  </div>
+
+    <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Для абитуриентов</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/features.css">
+
+  <style>
+    :root {
+      --accent: #e74c3c;
+    }
+    
+    .abitur-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    
+    .abitur-card {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border-top: 4px solid var(--accent);
+    }
+    
+    .abitur-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+  </style></head>
+<body>
+  <div class="container">
+        <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Для абитуриентов</h1>
+
+      <div class="highlight">
+        <p>UniveriD — твой проводник в мир студенческой жизни.<br>
+        Знакомься с вузом <strong>до поступления</strong>, пробуй себя в профессии, общайся со студентами и преподавателями — и принимай взвешенное решение.</p>
+      </div>
+
+      <div class="abitur-grid">
+        <div class="abitur-card">
+          <h3>🎥 Виртуальные туры</h3>
+          <p>3D-экскурсии по кампусу, лабораториям, общежитиям. Почувствуй атмосферу вуза, не выходя из дома.</p>
+        </div>
+        <div class="abitur-card">
+          <h3>📅 Дни открытых дверей</h3>
+          <p>Онлайн-трансляции, записи, виртуальные стенды. Задай вопрос в прямом эфире — и получи ответ от декана.</p>
+        </div>
+        <div class="abitur-card">
+          <h3>🎮 Профориентационные игры</h3>
+          <p>Мини-игры: собери робота, напиши код, спроектируй мост. Узнай, подходит ли тебе IT, инженерия или дизайн.</p>
+        </div>
+        <div class="abitur-card">
+          <h3>🏆 Олимпиады и хакатоны</h3>
+          <p>Участвуй в конкурсах для школьников — и получи <strong>бонусы при поступлении</strong> или приглашение на практику.</p>
+        </div>
+        <div class="abitur-card">
+          <h3>📊 Калькулятор поступления</h3>
+          <p>Введи баллы ЕГЭ → получи прогноз: “Ты проходишь на бюджет по направлению Прикладная математика”.</p>
+        </div>
+        <div class="abitur-card">
+          <h3>🧩 Подборка программ</h3>
+          <p>Система подберёт специальности по твоим интересам, ЕГЭ и целям. “Ты любишь математику и игры? → GameDev”</p>
+        </div>
+        <div class="abitur-card">
+          <h3>💬 Общение со студентами</h3>
+          <p>Задай вопрос реальному студенту — и узнай правду о парах, общежитии, стипендиях и жизни в кампусе.</p>
+        </div>
+        <div class="abitur-card">
+          <h3>🎓 Истории успеха</h3>
+          <p>Интервью: “Как я поступил без олимпиад”, “От села до Политеха”, “Мой путь в IT за 2 года”.</p>
+        </div>
+      </div>
+
+      <h2>Как это работает?</h2>
+      <ul>
+        <li>Зарегистрируйся как <strong>абитуриент</strong> — через email или Госуслуги.</li>
+        <li>Выбери вуз → исследуй программы → общайся с командой → подавай документы.</li>
+        <li>Push-уведомления: “До дедлайна подачи осталось 7 дней”, “Завтра хакатон для школьников — зарегистрируйся!”</li>
+      </ul>
+
+      <h2>Почему это работает?</h2>
+      <ul>
+        <li><strong>Доверие</strong>: настоящие студенты, а не маркетинг.</li>
+        <li><strong>Прозрачность</strong>: никаких скрытых условий — только факты.</li>
+        <li><strong>Практика</strong>: не просто рассказы — попробуй себя в профессии.</li>
+        <li><strong>Поддержка</strong>: от первого вопроса — до зачисления.</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>Бонус:</strong> Участники олимпиад и хакатонов через UniveriD получают +10 баллов к конкурсу или приоритет при зачислении.</p>
+      </div>
+
+      <h2>Готов сделать шаг к своей профессии?</h2>
+      <p>Выбери вуз → начни виртуальный тур → познакомься с будущим.<br>
+      <strong>Твоя студенческая жизнь начинается здесь и сейчас.</strong></p>
+    </main>
+  </div>
+
+    <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

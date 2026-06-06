@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniveriD — Демонстрация</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/demo.css">
+</head>
+<body>
+  <div class="container">
+            <header>
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="UniveriD - Главная страница">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          UniveriD
+        </a>
+        <div class="header-right">
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="features.html">Возможности</a>
+            <a href="about.html">О проекте</a>
+            <a href="universities.html">Вузы</a>
+            <a href="partners.html">Партнёрам</a>
+          </nav>
+          <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"></button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="index.html">Главная</a>
+        <a href="features.html">Возможности</a>
+        <a href="about.html">О проекте</a>
+        <a href="universities.html">Вузы</a>
+        <a href="partners.html">Партнёрам</a>
+        <button class="theme-toggle mobile" id="mobileThemeToggle" aria-label="Сменить тему (моб.)"></button>
+      </nav>
+    </header>
+
+    <div class="profile-card">
+      <div class="avatar">СС</div>
+      <div class="profile-info">
+        <h2>Сергей Сергеевич</h2>
+        <p>СПбПУ (Политех)</p>
+        <p>Группа: ИУ8-11Б</p>
+        <p>Факультет: Информационные технологии и управления</p>
+        <p>Специальность: Прикладная математика и информатика</p>
+      </div>
+    </div>
+
+    <div class="qr-container">
+      <img src="data:image/png;base64,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">
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="today">Сегодня</button>
+      <button class="tab-btn" data-tab="tomorrow">Завтра</button>
+      <button class="tab-btn" data-tab="week">Неделя</button>
+    </div>
+
+    <div id="schedule-content"></div>
+
+  </div>
+
+      <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UniveriD</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="universities.html">Вузы Петербурга</a></li>
+            <li><a href="partners.html">Партнёрам</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>📧 hello@univerid.ru</li>
+            <li>📱 Telegram: @univerid_support</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Для вузов</h3>
+          <ul>
+            <li><a href="for-universities.html">Интеграция с СЗИ</a></li>
+            <li><a href="for-universities.html">API для партнёров</a></li>
+            <li><a href="for-universities.html">Техническая документация</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 UniveriD. Цифровая студенческая жизнь — в одном QR-коде.</p>
+      </div>
+    </div>
+  </footer>    
+  <script src="js/main.js"></script>
+  <script>
+    // JavaScript для работы вкладок расписания
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const scheduleContent = document.getElementById('schedule-content');
+
+      // Пример данных расписания
+      const scheduleData = {
+        today: [
+          { time: '09:00 - 10:30', subject: 'Математический анализ', location: 'Ауд. 205' },
+          { time: '11:00 - 12:30', subject: 'Физика', location: 'Ауд. 301' },
+          { time: '13:30 - 15:00', subject: 'Программирование', location: 'Комп. класс 1' }
+        ],
+        tomorrow: [
+          { time: '10:00 - 11:30', subject: 'Линейная алгебра', location: 'Ауд. 203' },
+          { time: '12:00 - 13:30', subject: 'История', location: 'Ауд. 101' },
+          { time: '15:00 - 16:30', subject: 'Физкультура', location: 'Спортзал' }
+        ],
+        week: [
+          { time: 'Пн 09:00', subject: 'Мат. анализ', location: 'Ауд. 205' },
+          { time: 'Вт 11:00', subject: 'Физика', location: 'Ауд. 301' },
+          { time: 'Ср 13:30', subject: 'Программирование', location: 'Комп. класс 1' },
+          { time: 'Чт 10:00', subject: 'Алгебра', location: 'Ауд. 203' },
+          { time: 'Пт 12:00', subject: 'История', location: 'Ауд. 101' }
+        ]
+      };
+
+      // Функция для отображения расписания
+      function showSchedule(schedule) {
+        if (!schedule || schedule.length === 0) {
+          scheduleContent.innerHTML = '<p>На выбранный период расписание отсутствует</p>';
+          return;
+        }
+
+        let html = '<div class="schedule-list">';
+        schedule.forEach(item => {
+          html += `
+            <div class="schedule-item">
+              <div class="schedule-time">${item.time}</div>
+              <div class="schedule-subject">${item.subject}</div>
+              <div class="schedule-location">${item.location}</div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        scheduleContent.innerHTML = html;
+      }
+
+      // Обработчики для вкладок
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Убираем активный класс у всех кнопок
+          tabBtns.forEach(b => b.classList.remove('active'));
+          // Добавляем активный класс к нажатой кнопке
+          btn.classList.add('active');
+          
+          // Показываем соответствующее расписание
+          const tab = btn.getAttribute('data-tab');
+          showSchedule(scheduleData[tab]);
+        });
+      });
+
+      // Инициализация - показываем расписание на сегодня
+      showSchedule(scheduleData.today);
+    });
+  </script>
+</body>
+</html>
